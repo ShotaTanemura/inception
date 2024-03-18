@@ -22,6 +22,10 @@ up:
 down:
 	$(DOCKER_COMPOSE) -f $(COMPOSE_FILE) down
 
+# Build images
+build:
+	$(DOCKER_COMPOSE) -f $(COMPOSE_FILE) build
+
 # Remove containers and images
 rm:
 	$(DOCKER_COMPOSE) -f $(COMPOSE_FILE) down
