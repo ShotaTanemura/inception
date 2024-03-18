@@ -6,3 +6,6 @@ services:
       context: ./srcs
       dockerfile: ./requirements/nginx/Dockerfile
     image: nginx:shtanemu
+    ports:
+      # For debug
+      # - '80:80'
