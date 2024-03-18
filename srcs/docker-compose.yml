@@ -3,6 +3,6 @@ services:
   nginx:
     container_name: nginx
     build:
-      context: .
+      context: ./srcs
       dockerfile: ./requirements/nginx/Dockerfile
     image: nginx:shtanemu
