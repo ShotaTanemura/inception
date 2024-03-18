@@ -18,6 +18,10 @@ help: ## Display available targets with descriptions
 up:
 	$(DOCKER_COMPOSE) -f $(COMPOSE_FILE) up -d
 
+# Stop containers
+down:
+	$(DOCKER_COMPOSE) -f $(COMPOSE_FILE) down
+
 # Remove containers and images
 rm:
 	$(DOCKER_COMPOSE) -f $(COMPOSE_FILE) down
