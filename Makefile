@@ -6,6 +6,7 @@ DOCKER_REMOVE_IMAGE := $(DOCKER) rmi
 DOCKER_REMOVE_CONTAINER := $(DOCKER) rm
 COMPOSE_FILE := $(SRCS)/docker-compose.yml
 NGINX := nginx:shtanemu
+WORDPRESS := wordpress:shtanemu
 
 # Phony targets
 .PHONY: help up rm
@@ -30,3 +31,4 @@ build:
 rm:
 	$(DOCKER_COMPOSE) -f $(COMPOSE_FILE) down
 	$(DOCKER_REMOVE_IMAGE) $(NGINX)
+	$(DOCKER_REMOVE_IMAGE) $(WORDPRESS)
