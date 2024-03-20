@@ -13,8 +13,12 @@ services:
       - wordpress
     networks:
       - inception_network
+    volumes:
+      - wordpress:/var/www/html
     networks:
       - inception_network
+volumes:
+  wordpress:
 networks:
   inception_network:
     driver: bridge
