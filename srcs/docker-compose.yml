@@ -13,8 +13,17 @@ services:
       - wordpress
     networks:
       - inception_network
+  wordpress:
+    container_name: wordpress
+    build:
+      context: ./srcs
+      dockerfile: ./requirements/wordpress/Dockerfile
+    image: wordpress:shtanemu
+    ports:
+      - '9000:9000'
     volumes:
       - wordpress:/var/www/html
+    working_dir: /var/www/html
     networks:
       - inception_network
 volumes:
