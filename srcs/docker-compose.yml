@@ -9,6 +9,8 @@ services:
     ports:
       # For debug
       # - '80:80'
+    depends_on:
+      - wordpress
     networks:
       - inception_network
     networks:
