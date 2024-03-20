@@ -9,3 +9,10 @@ services:
     ports:
       # For debug
       # - '80:80'
+    networks:
+      - inception_network
+    networks:
+      - inception_network
+networks:
+  inception_network:
+    driver: bridge
