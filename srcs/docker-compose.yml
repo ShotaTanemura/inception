@@ -26,6 +26,12 @@ services:
     working_dir: /var/www/html
     networks:
       - inception_network
+  mariadb:
+    container_name: mariadb
+    build:
+      context: ./srcs
+      dockerfile: ./requirements/mariadb/Dockerfile
+    image: mariadb:shtanemu
 volumes:
   wordpress:
 networks:
