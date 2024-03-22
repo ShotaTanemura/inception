@@ -35,3 +35,7 @@ rm:
 	$(DOCKER_REMOVE_IMAGE) $(NGINX)
 	$(DOCKER_REMOVE_IMAGE) $(WORDPRESS)
 	$(DOCKER_REMOVE_IMAGE) $(MARIADB)
+
+# Remove unused images
+prune:
+	$(DOCKER_IMAGE) prune
