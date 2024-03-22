@@ -10,7 +10,7 @@ RUN apt update && apt install -y \
 	php8.3-cli \
 	php8.3-fpm && \
 	rm -rf /var/lib/apt/lists/*
-ADD requirements/wordpress/pool.d/www.conf /etc/php/8.3/fpm/pool.d/
+ADD requirements/wordpress/conf/www.conf /etc/php/8.3/fpm/pool.d/
 RUN apt update && apt install -y \
 	wget \
 	unzip
