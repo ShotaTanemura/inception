@@ -17,8 +17,9 @@ RUN apt update && apt install -y \
 RUN wget https://wordpress.org/wordpress-6.4.3.zip && \
 	mkdir -p /var/www/html && \
 	unzip wordpress-6.4.3.zip -d /var/www/html
+ADD requirements/wordpress/conf/wp-config-docker.php /var/www/html/wordpress
 RUN cd /var/www/html/wordpress && \
-	cp wp-config-sample.php wp-config.php && \
+	cp wp-config-docker.php wp-config.php && \
 	chown -R www-data:www-data /var/www/html/wordpress
 COPY requirements/wordpress/entrypoint.sh /
 RUN chmod +x /entrypoint.sh
