@@ -12,3 +12,7 @@ RUN mkdir -p /var/lib/mysql/mysql && \
 	find /etc/mysql/ -name '*.cnf' -print0 \
 			| xargs -0 grep -lZE '^(bind-address|log|user\s)' \
 			| xargs -rt -0 sed -Ei 's/^(bind-address|log|user\s)/#&/'
+COPY requirements/mariadb/entrypoint.sh /
+EXPOSE 3306
+RUN chmod +x /entrypoint.sh
+ENTRYPOINT ["/entrypoint.sh"]
