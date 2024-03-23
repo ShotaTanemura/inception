@@ -1,5 +1,7 @@
 #! /bin/bash
 
+set -ex;
+
 wp_config_file="wordpress/wp-config.php"
 
 sed -i "s/\MYSQL_DATABASE/${MYSQL_DATABASE}/g" "$wp_config_file"
