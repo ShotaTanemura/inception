@@ -8,6 +8,7 @@ services:
     image: nginx:shtanemu
     ports:
       # For debug
+      - '80:80'
     volumes:
       - wordpress:/var/www/html:ro
     depends_on:
@@ -44,6 +45,8 @@ services:
       MYSQL_DATABASE: ${MYSQL_DATABASE}
       MYSQL_USER: ${MYSQL_USER}
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    volumes:
+      - mariadb:/var/lib/mysql
     networks:
       - inception_network
     healthcheck:
@@ -54,6 +57,7 @@ services:
       start_period: 30s
 volumes:
   wordpress:
+  mariadb:
 networks:
   inception_network:
     driver: bridge
