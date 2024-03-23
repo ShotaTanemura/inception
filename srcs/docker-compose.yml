@@ -8,7 +8,8 @@ services:
     image: nginx:shtanemu
     ports:
       # For debug
-      # - '80:80'
+    volumes:
+      - wordpress:/var/www/html:ro
     depends_on:
       - wordpress
     networks:
