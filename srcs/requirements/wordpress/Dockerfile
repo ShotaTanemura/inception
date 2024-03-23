@@ -25,5 +25,6 @@ RUN cd /var/www/html/wordpress && \
 	cp wp-config-docker.php wp-config.php && \
 	chown -R www-data:www-data /var/www/html/wordpress
 COPY requirements/wordpress/entrypoint.sh /
+EXPOSE 9000
 RUN chmod +x /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
