@@ -8,18 +8,23 @@ RUN apt update && apt install -y \
 RUN apt update && apt install -y \
 	php8.3 \
 	php8.3-cli \
-	php8.3-fpm && \
+	php8.3-fpm \
+	php8.3-mysql \
+	php8.3-mbstring \
+	php8.3-pdo && \
 	rm -rf /var/lib/apt/lists/*
-ADD requirements/wordpress/pool.d/www.conf /etc/php/8.3/fpm/pool.d/
+ADD requirements/wordpress/conf/www.conf /etc/php/8.3/fpm/pool.d/
 RUN apt update && apt install -y \
 	wget \
 	unzip
 RUN wget https://wordpress.org/wordpress-6.4.3.zip && \
 	mkdir -p /var/www/html && \
 	unzip wordpress-6.4.3.zip -d /var/www/html
+ADD requirements/wordpress/conf/wp-config-docker.php /var/www/html/wordpress
 RUN cd /var/www/html/wordpress && \
-	cp wp-config-sample.php wp-config.php && \
+	cp wp-config-docker.php wp-config.php && \
 	chown -R www-data:www-data /var/www/html/wordpress
 COPY requirements/wordpress/entrypoint.sh /
+EXPOSE 9000
 RUN chmod +x /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]

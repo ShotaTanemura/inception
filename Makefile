@@ -4,9 +4,11 @@ DOCKER := docker
 DOCKER_COMPOSE := $(DOCKER) compose
 DOCKER_REMOVE_IMAGE := $(DOCKER) rmi
 DOCKER_REMOVE_CONTAINER := $(DOCKER) rm
+DOCKER_IMAGE := $(DOCKER) image
 COMPOSE_FILE := $(SRCS)/docker-compose.yml
 NGINX := nginx:shtanemu
 WORDPRESS := wordpress:shtanemu
+MARIADB := mariadb:shtanemu
 
 # Phony targets
 .PHONY: help up rm
@@ -32,3 +34,8 @@ rm:
 	$(DOCKER_COMPOSE) -f $(COMPOSE_FILE) down
 	$(DOCKER_REMOVE_IMAGE) $(NGINX)
 	$(DOCKER_REMOVE_IMAGE) $(WORDPRESS)
+	$(DOCKER_REMOVE_IMAGE) $(MARIADB)
+
+# Remove unused images
+prune:
+	$(DOCKER_IMAGE) prune
