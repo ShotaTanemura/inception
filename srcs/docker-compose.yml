@@ -19,6 +19,11 @@ services:
       context: ./srcs
       dockerfile: ./requirements/wordpress/Dockerfile
     image: wordpress:shtanemu
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
     ports:
       - '9000:9000'
     volumes:
@@ -32,6 +37,11 @@ services:
       context: ./srcs
       dockerfile: ./requirements/mariadb/Dockerfile
     image: mariadb:shtanemu
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
 volumes:
   wordpress:
 networks:
