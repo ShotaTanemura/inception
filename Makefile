@@ -17,25 +17,20 @@ MARIADB := mariadb:shtanemu
 help: ## Display available targets with descriptions
 	@awk 'BEGIN {FS = ":.*?## "} /^[a-zA-Z_-]+:.*?## / {printf "\033[36m%-20s\033[0m %s\n", $$1, $$2}' $(MAKEFILE_LIST)
 
-# Start containers in detached mode
-up:
+up: ## Start containers in detached mode
 	$(DOCKER_COMPOSE) -f $(COMPOSE_FILE) up -d
 
-# Stop containers
-down:
+down: ## Stop containers
 	$(DOCKER_COMPOSE) -f $(COMPOSE_FILE) down
 
-# Build images
-build:
+build: ## Build images
 	$(DOCKER_COMPOSE) -f $(COMPOSE_FILE) build
 
-# Remove containers and images
-rm:
+rm: ## Remove containers and images
 	$(DOCKER_COMPOSE) -f $(COMPOSE_FILE) down
 	$(DOCKER_REMOVE_IMAGE) $(NGINX)
 	$(DOCKER_REMOVE_IMAGE) $(WORDPRESS)
 	$(DOCKER_REMOVE_IMAGE) $(MARIADB)
 
-# Remove unused images
-prune:
+prune: ## Remove unused images
 	$(DOCKER_IMAGE) prune
