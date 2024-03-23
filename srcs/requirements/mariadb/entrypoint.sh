@@ -1,5 +1,7 @@
 #! /bin/bash
 
+set -ex
+
 mysqld_safe --skip-networking &
 
 until mysqladmin ping &>/dev/null; do
