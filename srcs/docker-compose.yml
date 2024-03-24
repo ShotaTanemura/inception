@@ -22,6 +22,9 @@ services:
       dockerfile: ./requirements/wordpress/Dockerfile
     image: wordpress:shtanemu
     environment:
+      DOMAIN_NAME: ${DOMAIN_NAME}
+      WORDPRESS_TITLE: ${WORDPRESS_TITLE}
+      WORDPRESS_EMAIL: ${WORDPRESS_EMAIL}
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
       MYSQL_DATABASE: ${MYSQL_DATABASE}
       MYSQL_USER: ${MYSQL_USER}

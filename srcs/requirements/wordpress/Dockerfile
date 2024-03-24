@@ -17,6 +17,10 @@ RUN set -ex; \
 			php8.3-mbstring \
 			php8.3-pdo; \
 		rm -rf /var/lib/apt/lists/*
+RUN set -ex; \
+		curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar; \
+		chmod +x wp-cli.phar; \
+		mv wp-cli.phar /usr/local/bin/wp
 ADD requirements/wordpress/conf/www.conf /etc/php/8.3/fpm/pool.d/
 RUN set -ex; \
 		apt update; \
