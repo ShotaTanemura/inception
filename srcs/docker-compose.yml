@@ -14,7 +14,7 @@ services:
     depends_on:
       - wordpress
     networks:
-      - inception_network
+      - docker-network
   wordpress:
     container_name: wordpress
     build:
@@ -33,7 +33,7 @@ services:
       - wordpress:/var/www/html
     working_dir: /var/www/html
     networks:
-      - inception_network
+      - docker-network
     depends_on:
       mariadb:
         condition: service_healthy
@@ -51,7 +51,7 @@ services:
     volumes:
       - mariadb:/var/lib/mysql
     networks:
-      - inception_network
+      - docker-network
     healthcheck:
       test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-p$MYSQL_ROOT_PASSWORD"]
       interval: 30s
@@ -62,5 +62,5 @@ volumes:
   wordpress:
   mariadb:
 networks:
-  inception_network:
+  docker-network:
     driver: bridge
