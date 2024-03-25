@@ -23,6 +23,9 @@ RUN set -ex; \
 		mv wp-cli.phar /usr/local/bin/wp
 ADD requirements/wordpress/conf/www.conf /etc/php/8.3/fpm/pool.d/
 RUN set -ex; \
+		sed -i "s/\/var\/log\/php8.3-fpm.log/\/proc\/self\/fd\/2/g" /etc/php/8.3/fpm/php-fpm.conf; \
+		echo "access.log = /proc/self/fd/2" >> /etc/php/8.3/fpm/php-fpm.conf
+RUN set -ex; \
 		apt update; \
 		apt install -y \
 			wget \

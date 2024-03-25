@@ -6,6 +6,7 @@ services:
       context: ./srcs
       dockerfile: ./requirements/nginx/Dockerfile
     image: nginx:shtanemu
+    tty: true
     ports:
       # For debug
       - '80:80'
