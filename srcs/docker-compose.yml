@@ -3,7 +3,6 @@ services:
   nginx:
     container_name: nginx
     build:
-      context: ./srcs
       dockerfile: ./requirements/nginx/Dockerfile
     image: nginx:shtanemu
     tty: true
@@ -19,7 +18,6 @@ services:
   wordpress:
     container_name: wordpress
     build:
-      context: ./srcs
       dockerfile: ./requirements/wordpress/Dockerfile
     image: wordpress:shtanemu
     environment:
@@ -41,7 +39,6 @@ services:
   mariadb:
     container_name: mariadb
     build:
-      context: ./srcs
       dockerfile: ./requirements/mariadb/Dockerfile
     image: mariadb:shtanemu
     environment:
