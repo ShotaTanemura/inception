@@ -4,6 +4,9 @@ services:
     build:
       dockerfile: ./requirements/nginx/Dockerfile
     image: nginx:shtanemu
+    environment:
+      DOMAIN_NAME: ${DOMAIN_NAME}
+    hostname: ${DOMAIN_NAME}
     tty: true
     ports:
       # For debug
