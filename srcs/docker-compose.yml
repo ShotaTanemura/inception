@@ -12,6 +12,7 @@ services:
       - wordpress:/var/www/html:ro
     depends_on:
       - wordpress
+    restart: always
     networks:
       - docker-network
   wordpress:
@@ -30,6 +31,7 @@ services:
     volumes:
       - wordpress:/var/www/html
     working_dir: /var/www/html
+    restart: always
     networks:
       - docker-network
     depends_on:
@@ -47,6 +49,7 @@ services:
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
     volumes:
       - mariadb:/var/lib/mysql
+    restart: always
     networks:
       - docker-network
     healthcheck:
