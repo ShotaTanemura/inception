@@ -83,9 +83,8 @@ define( 'WP_DEBUG', false );
 
 /* Add any custom values between this line and the "stop editing" line. */
 
-
-
-/* That's all, stop editing! Happy publishing. */
+/** Use SSL in admin pages. */
+define('FORCE_SSL_ADMIN', true);
 
 /** Absolute path to the WordPress directory. */
 if ( ! defined( 'ABSPATH' ) ) {
@@ -94,3 +93,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 /** Sets up WordPress vars and included files. */
 require_once ABSPATH . 'wp-settings.php';
+
+
+/* That's all, stop editing! Happy publishing. */
+
