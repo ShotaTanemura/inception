@@ -40,7 +40,7 @@ RUN set -ex; \
 		cp wp-config-docker.php wp-config.php; \
 		chown -R www-data:www-data /var/www/html/wordpress
 RUN set -ex; \
-		wp plugin install https://downloads.wordpress.org/plugin/redis-cache.2.5.1.zip;
+		wp plugin install https://downloads.wordpress.org/plugin/redis-cache.2.5.1.zip --allow-root;
 COPY requirements/wordpress/entrypoint.sh /
 EXPOSE 9000
 RUN chmod +x /entrypoint.sh
