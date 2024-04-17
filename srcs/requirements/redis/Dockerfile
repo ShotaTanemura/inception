@@ -11,6 +11,6 @@ RUN set -ex; \
         apt update; \
         apt install -y redis;
 EXPOSE 6379
-COPY requirements/nginx/entrypoint.sh /
+COPY requirements/redis/entrypoint.sh /
 RUN chmod +x /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
