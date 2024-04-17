@@ -67,7 +67,7 @@ services:
       dockerfile: ./requirements/redis/Dockerfile
     image: redis:shtanemu
     restart: always
-    network:
+    networks:
       - docker-network
 volumes:
   wordpress:
