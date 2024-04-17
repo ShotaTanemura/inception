@@ -40,7 +40,7 @@ RUN set -ex; \
 		cp wp-config-docker.php wp-config.php; \
 		chown -R www-data:www-data /var/www/html/wordpress
 RUN set -ex; \
-		wp plugin install redis-cache --allow-root;
+		wp plugin install redis-cache --allow-root --path=/var/www/html/wordpress;
 COPY requirements/wordpress/entrypoint.sh /
 EXPOSE 9000
 RUN chmod +x /entrypoint.sh
