@@ -31,6 +31,7 @@ services:
       MYSQL_DATABASE: ${MYSQL_DATABASE}
       MYSQL_USER: ${MYSQL_USER}
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      REDIS_PASSWORD: ${REDIS_PASSWORD}
     volumes:
       - wordpress:/var/www/html
     working_dir: /var/www/html
@@ -39,6 +40,8 @@ services:
       - docker-network
     depends_on:
       mariadb:
+        condition: service_healthy
+      redis:
         condition: service_healthy
   mariadb:
     container_name: mariadb
@@ -61,6 +64,18 @@ services:
       timeout: 5s
       retries: 6
       start_period: 30s
+  redis:
+    container_name: redis
+    build:
+      dockerfile: ./requirements/redis/Dockerfile
+    image: redis:shtanemu
+    environment:
+      REDIS_PASSWORD: ${REDIS_PASSWORD}
+    restart: always
+    networks:
+      - docker-network
+    healthcheck:
+      test: [ "CMD", "redis-cli", "--raw", "incr", "ping" ]
 volumes:
   wordpress:
   mariadb:
