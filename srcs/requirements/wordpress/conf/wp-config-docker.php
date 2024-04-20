@@ -41,7 +41,7 @@ define( 'DB_COLLATE', '' );
 define( 'WP_REDIS_HOST', 'redis' );
 define( 'WP_REDIS_PORT', 6379 );
 
-define( 'WP_REDIS_PASSWORD', ['REDIS_USER', 'REDIS_PASSWORD'] )
+define('WP_REDIS_PASSWORD', );
 
 /**#@+
  * Authentication unique keys and salts.
