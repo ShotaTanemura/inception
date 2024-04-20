@@ -31,8 +31,6 @@ services:
       MYSQL_DATABASE: ${MYSQL_DATABASE}
       MYSQL_USER: ${MYSQL_USER}
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
-      REDIS_ADMIN_PASSWORD: ${REDIS_ADMIN_PASSWORD}
-      REDIS_USER: ${REDIS_USER}
       REDIS_PASSWORD: ${REDIS_PASSWORD}
     volumes:
       - wordpress:/var/www/html
@@ -72,8 +70,6 @@ services:
       dockerfile: ./requirements/redis/Dockerfile
     image: redis:shtanemu
     environment:
-      REDIS_ADMIN_PASSWORD: ${REDIS_ADMIN_PASSWORD}
-      REDIS_USER: ${REDIS_USER}
       REDIS_PASSWORD: ${REDIS_PASSWORD}
     restart: always
     networks:
