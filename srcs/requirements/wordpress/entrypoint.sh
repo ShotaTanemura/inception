@@ -16,9 +16,6 @@ wp search-replace "http://${DOMAIN_NAME}" "https://${DOMAIN_NAME}" --allow-root
 
 wp plugin install redis-cache --allow-root --path=/var/www/html/wordpress --activate
 
-# wp config set WP_REDIS_PASSWORD "[default, ${REDIS_ADMIN_PASSWORD}]" --allow-root
-
-
-# wp redis enable --allow-root
+wp redis enable --allow-root
 
 php-fpm8.3 -F
