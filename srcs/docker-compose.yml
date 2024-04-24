@@ -76,6 +76,12 @@ services:
       - docker-network
     healthcheck:
       test: [ "CMD", "redis-cli", "--raw", "incr", "ping" ]
+  ftp:
+    container_name: ftp
+    build:
+      dockerfile: ./requirements/ftp/Dockerfile
+    image: ftp:shtanemu
+    restart: always
 volumes:
   wordpress:
   mariadb:
