@@ -86,6 +86,9 @@ services:
       - "30000-30009:30000-30009"
     volumes:
       - wordpress:/var/www/html
+    environment:
+      FTP_USER_NAME: ${FTP_USER_NAME}
+    FTP_USER_PASS: ${FTP_USER_PASS}
     restart: always
 volumes:
   wordpress:
