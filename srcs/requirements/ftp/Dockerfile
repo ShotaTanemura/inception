@@ -4,3 +4,5 @@ RUN set -ex; \
     apt install -y \
             vsftpd;
 
+COPY requirements/ftp/conf/vsftpd.conf /etc/vsftpd/vsftpd.conf
+
