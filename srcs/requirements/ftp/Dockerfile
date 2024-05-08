@@ -6,3 +6,6 @@ RUN set -ex; \
 
 COPY requirements/ftp/conf/vsftpd.conf /etc/vsftpd/vsftpd.conf
 
+RUN mkdir -p /var/www/html
+
+RUN mkdir -p /var/run/vsftpd/empty
