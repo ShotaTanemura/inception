@@ -84,6 +84,8 @@ services:
     ports:
       - "21:21"
       - "30000-30009:30000-30009"
+    volumes:
+      - wordpress:/var/www/html
     restart: always
 volumes:
   wordpress:
