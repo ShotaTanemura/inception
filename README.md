@@ -14,9 +14,6 @@ You need to provide environment variables for the project to function correctly.
 This setup is configured to use HTTP for your WordPress site. Make sure you have the SSL certificate and key files ready. These files should be placed in the directory specified by the CERTS_ environmental variable in the .env file. This directory should be located within the src directory.
 
 # Usage
-Based on the provided Makefile, here's an usage guide for your project:
-
-### Usage
 1. **Build Images**:  
    ```
    make build
