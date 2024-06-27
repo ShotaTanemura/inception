@@ -88,8 +88,15 @@ services:
       - wordpress:/var/www/html
     environment:
       FTP_USER_NAME: ${FTP_USER_NAME}
-    FTP_USER_PASS: ${FTP_USER_PASS}
+      FTP_USER_PASS: ${FTP_USER_PASS}
     restart: always
+  adminer:
+    container_name: adminer
+    build:
+      dockerfile: ./requirements/adminer/Dockerfile
+    image: adminer:shtanemu
+    networks:
+      - docker-network
 volumes:
   wordpress:
   mariadb:
