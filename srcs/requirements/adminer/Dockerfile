@@ -19,6 +19,9 @@ RUN set -ex; \
 RUN set -ex; \
         mkdir -p /var/www/html; \
 		wget -O /var/www/html/adminer.php https://github.com/vrana/adminer/releases/download/v4.8.1/adminer-4.8.1.php;
+RUN set -ex; \
+	cd /var/www/html; \
+	chown -R www-data:www-data /var/www/html
 ADD requirements/adminer/conf/www.conf /etc/php/8.3/fpm/pool.d/
 EXPOSE 4343
 CMD ["php-fpm8.3", "-F"]
