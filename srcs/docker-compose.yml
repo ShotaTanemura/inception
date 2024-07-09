@@ -97,6 +97,13 @@ services:
     image: adminer:shtanemu
     networks:
       - docker-network
+  website:
+    container_name: website
+    build:
+      dockerfile: ./requirements/website/Dockerfile
+    image: website:shtanemu
+    networks:
+      - docker-network
 volumes:
   wordpress:
   mariadb:
