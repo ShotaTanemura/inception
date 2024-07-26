@@ -48,7 +48,8 @@ services:
   mariadb:
     container_name: mariadb
     build:
-      dockerfile: ./requirements/mariadb/Dockerfile
+      context: ./requirements/mariadb/
+      dockerfile: ./Dockerfile
     image: mariadb:shtanemu
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
