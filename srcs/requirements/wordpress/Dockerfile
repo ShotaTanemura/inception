@@ -21,7 +21,7 @@ RUN set -ex; \
 		curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar; \
 		chmod +x wp-cli.phar; \
 		mv wp-cli.phar /usr/local/bin/wp
-ADD requirements/wordpress/conf/www.conf /etc/php/8.3/fpm/pool.d/
+ADD ./conf/www.conf /etc/php/8.3/fpm/pool.d/
 RUN set -ex; \
 		sed -i "s/\/var\/log\/php8.3-fpm.log/\/proc\/self\/fd\/2/g" /etc/php/8.3/fpm/php-fpm.conf; \
 		echo "access.log = /proc/self/fd/2" >> /etc/php/8.3/fpm/php-fpm.conf
@@ -34,12 +34,12 @@ RUN set -ex; \
 		wget https://wordpress.org/wordpress-6.4.3.zip; \
 		mkdir -p /var/www/html; \
 		unzip wordpress-6.4.3.zip -d /var/www/html
-ADD requirements/wordpress/conf/wp-config-docker.php /var/www/html/wordpress
+ADD ./conf/wp-config-docker.php /var/www/html/wordpress
 RUN set -ex; \
 		cd /var/www/html/wordpress; \
 		cp wp-config-docker.php wp-config.php; \
 		chown -R www-data:www-data /var/www/html/wordpress
-COPY requirements/wordpress/entrypoint.sh /
+COPY ./entrypoint.sh /
 EXPOSE 9000
 RUN chmod +x /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]

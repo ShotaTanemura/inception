@@ -12,9 +12,9 @@ WORKDIR /app
 
 RUN update-ca-certificates
 
-COPY requirements/website/src/ /app/code
+COPY ./src/ /app/code
 
-COPY requirements/website/entrypoint.sh /
+COPY ./entrypoint.sh /
 RUN chmod +x /entrypoint.sh
 
 EXPOSE 8080

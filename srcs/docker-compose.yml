@@ -2,7 +2,8 @@ services:
   nginx:
     container_name: nginx
     build:
-      dockerfile: ./requirements/nginx/Dockerfile
+      context: ./requirements/nginx/
+      dockerfile: ./Dockerfile
     image: nginx:shtanemu
     environment:
       DOMAIN_NAME: ${DOMAIN_NAME}
@@ -21,7 +22,8 @@ services:
   wordpress:
     container_name: wordpress
     build:
-      dockerfile: ./requirements/wordpress/Dockerfile
+      context: ./requirements/wordpress/
+      dockerfile: ./Dockerfile
     image: wordpress:shtanemu
     environment:
       DOMAIN_NAME: ${DOMAIN_NAME}
@@ -46,7 +48,8 @@ services:
   mariadb:
     container_name: mariadb
     build:
-      dockerfile: ./requirements/mariadb/Dockerfile
+      context: ./requirements/mariadb/
+      dockerfile: ./Dockerfile
     image: mariadb:shtanemu
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
@@ -67,7 +70,8 @@ services:
   redis:
     container_name: redis
     build:
-      dockerfile: ./requirements/redis/Dockerfile
+      context: ./requirements/redis/
+      dockerfile: ./Dockerfile
     image: redis:shtanemu
     environment:
       REDIS_PASSWORD: ${REDIS_PASSWORD}
@@ -79,7 +83,8 @@ services:
   ftp:
     container_name: ftp
     build:
-      dockerfile: ./requirements/ftp/Dockerfile
+      context: ./requirements/ftp/
+      dockerfile: ./Dockerfile
     image: ftp:shtanemu
     ports:
       - "21:21"
@@ -93,20 +98,23 @@ services:
   adminer:
     container_name: adminer
     build:
-      dockerfile: ./requirements/adminer/Dockerfile
+      context: ./requirements/adminer/
+      dockerfile: ./Dockerfile
     image: adminer:shtanemu
     networks:
       - docker-network
   website:
     container_name: website
     build:
-      dockerfile: ./requirements/website/Dockerfile
+      context: ./requirements/website/
+      dockerfile: ./Dockerfile
     image: website:shtanemu
     networks:
       - docker-network
   cadvisor:
     build:
-      dockerfile: ./requirements/cadvisor/Dockerfile
+      context: ./requirements/cadvisor/
+      dockerfile: ./Dockerfile
     container_name: cadvisor
     ports:
       - "8080:8080"
