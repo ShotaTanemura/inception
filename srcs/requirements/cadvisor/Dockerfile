@@ -1,8 +1,8 @@
 FROM debian:bookworm-20240311-slim AS base
 
 RUN set -ex; \
-        apt update; \
-        apt install -y \
+        apt-get update; \
+        apt-get install -y \
             build-essential \
             curl \
             git \

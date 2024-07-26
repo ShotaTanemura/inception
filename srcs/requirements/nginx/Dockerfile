@@ -1,7 +1,7 @@
 FROM debian:bookworm-20240311-slim
 RUN set -ex; \
-		apt update; \
-		apt install -y \
+		apt-get update; \
+		apt-get install -y \
 			nginx \
 			openssl; \
 		rm -rf /var/lib/apt/lists/*

@@ -1,7 +1,7 @@
 FROM debian:bookworm-20240311-slim
 RUN set -ex; \
-		apt update; \
-		apt install -y mariadb-server; \
+		apt-get update; \
+		apt-get install -y mariadb-server; \
 		rm -rf /var/lib/apt/lists/*
 RUN set -ex; \
 		mkdir -p /var/lib/mysql/mysql; \
