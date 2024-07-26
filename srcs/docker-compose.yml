@@ -83,7 +83,8 @@ services:
   ftp:
     container_name: ftp
     build:
-      dockerfile: ./requirements/ftp/Dockerfile
+      context: ./requirements/ftp/
+      dockerfile: ./Dockerfile
     image: ftp:shtanemu
     ports:
       - "21:21"

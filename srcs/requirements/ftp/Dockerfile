@@ -4,12 +4,12 @@ RUN set -ex; \
         apt-get install -y \
             vsftpd;
 
-COPY requirements/ftp/conf/vsftpd.conf /etc/vsftpd/vsftpd.conf
+COPY ./conf/vsftpd.conf /etc/vsftpd/vsftpd.conf
 
 RUN mkdir -p /var/www/html
 
 RUN mkdir -p /var/run/vsftpd/empty
 
-COPY requirements/ftp/entrypoint.sh /entrypoint.sh
+COPY ./entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
