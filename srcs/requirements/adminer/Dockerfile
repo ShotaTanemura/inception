@@ -1,15 +1,15 @@
 FROM debian:bookworm-20240311-slim
 RUN set -ex; \
-		apt update; \
-		apt install -y \
+		apt-get update; \
+		apt-get install -y \
 			curl \
 			lsb-release; \
 		curl -sSLo /usr/share/keyrings/deb.sury.org-php.gpg https://packages.sury.org/php/apt.gpg; \
 		sh -c 'echo "deb [signed-by=/usr/share/keyrings/deb.sury.org-php.gpg] https://packages.sury.org/php/ $(lsb_release -sc) main" > /etc/apt/sources.list.d/php.list'; \
-		apt update
+		apt-get update
 RUN set -ex; \
-		apt update; \
-		apt install -y \
+		apt-get update; \
+		apt-get install -y \
             php8.3 \
             php8.3-cli \
             php8.3-fpm \
