@@ -22,7 +22,8 @@ services:
   wordpress:
     container_name: wordpress
     build:
-      dockerfile: ./requirements/wordpress/Dockerfile
+      context: ./requirements/wordpress/
+      dockerfile: ./Dockerfile
     image: wordpress:shtanemu
     environment:
       DOMAIN_NAME: ${DOMAIN_NAME}
