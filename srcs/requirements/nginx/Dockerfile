@@ -5,9 +5,9 @@ RUN set -ex; \
 			nginx \
 			openssl; \
 		rm -rf /var/lib/apt/lists/*
-ADD requirements/nginx/conf/default.conf /etc/nginx/conf.d/default.conf
+ADD ./conf/default.conf /etc/nginx/conf.d/default.conf
 RUN set -ex; \
 	mkdir -p /etc/nginx/ssl
-COPY requirements/nginx/entrypoint.sh /
+COPY ./entrypoint.sh /
 RUN chmod +x /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]

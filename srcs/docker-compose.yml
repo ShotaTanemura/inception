@@ -2,7 +2,8 @@ services:
   nginx:
     container_name: nginx
     build:
-      dockerfile: ./requirements/nginx/Dockerfile
+      context: ./requirements/nginx/
+      dockerfile: ./Dockerfile
     image: nginx:shtanemu
     environment:
       DOMAIN_NAME: ${DOMAIN_NAME}
