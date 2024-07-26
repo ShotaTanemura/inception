@@ -113,7 +113,8 @@ services:
       - docker-network
   cadvisor:
     build:
-      dockerfile: ./requirements/cadvisor/Dockerfile
+      context: ./requirements/cadvisor/
+      dockerfile: ./Dockerfile
     container_name: cadvisor
     ports:
       - "8080:8080"
