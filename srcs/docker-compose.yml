@@ -70,7 +70,8 @@ services:
   redis:
     container_name: redis
     build:
-      dockerfile: ./requirements/redis/Dockerfile
+      context: ./requirements/redis/
+      dockerfile: ./Dockerfile
     image: redis:shtanemu
     environment:
       REDIS_PASSWORD: ${REDIS_PASSWORD}
