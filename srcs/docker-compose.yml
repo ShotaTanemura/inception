@@ -98,7 +98,8 @@ services:
   adminer:
     container_name: adminer
     build:
-      dockerfile: ./requirements/adminer/Dockerfile
+      context: ./requirements/adminer/
+      dockerfile: ./Dockerfile
     image: adminer:shtanemu
     networks:
       - docker-network

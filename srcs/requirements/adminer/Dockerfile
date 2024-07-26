@@ -22,6 +22,6 @@ RUN set -ex; \
 RUN set -ex; \
 	cd /var/www/html; \
 	chown -R www-data:www-data /var/www/html
-ADD requirements/adminer/conf/www.conf /etc/php/8.3/fpm/pool.d/
+ADD ./conf/www.conf /etc/php/8.3/fpm/pool.d/
 EXPOSE 4343
 CMD ["php-fpm8.3", "-F"]
