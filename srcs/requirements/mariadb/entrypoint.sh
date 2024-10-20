@@ -25,4 +25,4 @@ EOF
 
 mysqladmin shutdown
 
-mariadbd -u mysql
+exec mariadbd -u mysql

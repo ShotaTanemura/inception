@@ -13,4 +13,4 @@ if [ ! -f "/etc/vsftpd.userlist" ]; then
 
 fi
 
-/usr/sbin/vsftpd /etc/vsftpd/vsftpd.conf
+exec /usr/sbin/vsftpd /etc/vsftpd/vsftpd.conf

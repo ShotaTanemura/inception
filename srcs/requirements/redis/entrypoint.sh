@@ -9,4 +9,4 @@ sed -i '/bind/ s/^/# /' /etc/redis/redis.conf
 # requirepass
 sed -i "s/^#\s*\(requirepass\) .*/\1 ${REDIS_PASSWORD}/g" /etc/redis/redis.conf
 
-redis-server /etc/redis/redis.conf --daemonize no
+exec redis-server /etc/redis/redis.conf --daemonize no

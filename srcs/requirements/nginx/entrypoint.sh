@@ -13,4 +13,4 @@ if find /etc/nginx/ssl/server.crt; [ "$?" -ne 0 ]; then
 	mv /etc/nginx/ssl/*.crt /etc/nginx/ssl/server.crt
 fi
 
-nginx -g 'daemon off;'
+exec nginx -g 'daemon off;'
