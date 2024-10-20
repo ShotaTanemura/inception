@@ -34,6 +34,8 @@ FROM debian:bookworm-20240311-slim
 
 COPY --from=builder /go/src/github.com/google/cadvisor/_output/cadvisor /usr/bin/cadvisor
 
+EXPOSE 8080
+
 COPY ./entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]

@@ -117,8 +117,6 @@ services:
       context: ./requirements/cadvisor/
       dockerfile: ./Dockerfile
     image: cadvisor:shtanemu
-    ports:
-      - "8080:8080"
     volumes:
       - /:/rootfs:ro
       - /var/run:/var/run:ro
@@ -127,6 +125,8 @@ services:
     environment:
       DEBUG: ${DEBUG}
     restart: on-failure
+    networks:
+      - docker-network
 volumes:
   wordpress:
     driver: local
