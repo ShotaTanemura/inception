@@ -9,9 +9,9 @@ func main() {
 	router := gin.Default()
 
 	router.LoadHTMLGlob("web/templates/*")
-	router.Static("/website/static", "./web/static")
+	router.Static("/static", "./web/static")
 
-	router.GET("/website", ShowIndexPage)
+	router.GET("/", ShowIndexPage)
 	router.Run(":8080")
 }
 
