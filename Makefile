@@ -25,6 +25,9 @@ up: ## Start containers in detached mode
 down: ## Stop containers
 	$(DOCKER_COMPOSE) -f $(COMPOSE_FILE) down
 
+stop: ## Pause containers
+	$(DOCKER_COMPOSE) -f $(COMPOSE_FILE) stop
+
 build: ## Build images
 	$(DOCKER_COMPOSE) -f $(COMPOSE_FILE) build
 
