@@ -18,6 +18,8 @@ help: ## Display available targets with descriptions
 	@awk 'BEGIN {FS = ":.*?## "} /^[a-zA-Z_-]+:.*?## / {printf "\033[36m%-20s\033[0m %s\n", $$1, $$2}' $(MAKEFILE_LIST)
 
 up: ## Start containers in detached mode
+	mkdir -p /home/${USER}/data/mariadb
+	mkdir -p /home/${USER}/data/wordpress
 	$(DOCKER_COMPOSE) -f $(COMPOSE_FILE) up -d
 
 down: ## Stop containers
