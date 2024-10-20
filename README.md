@@ -11,7 +11,7 @@ Ensure that Docker is installed on your system. You can download and install Doc
 You need to provide environment variables for the project to function correctly. Copy the .env_sample file located in the src directory and create a new file named .env in the same directory. Update the variables in the .env file according to your requirements. Ensure that you define the CERTS_ environmental variable to specify the directory where your SSL certificate and key files are located. This directory should be placed within the src directory.
 
 ## HTTP Configuration
-This setup is configured to use HTTP for your WordPress site. Make sure you have the SSL certificate and key files ready. These files should be placed in the directory specified by the CERTS_ environmental variable in the .env file. This directory should be located within the src directory.
+This setup is configured to use HTTP for your WordPress site. Make sure you have the SSL certificate (`.crt`) and key (`.key`) files ready. These files should be placed in the directory specified by the CERTS_ environmental variable in the .env file. This directory should be located within the [srcs](./srcs/) directory.
 
 # Usage
 1. **Build Images**:  
