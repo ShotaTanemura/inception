@@ -112,10 +112,11 @@ services:
     networks:
       - docker-network
   cadvisor:
+    container_name: cadvisor
     build:
       context: ./requirements/cadvisor/
       dockerfile: ./Dockerfile
-    container_name: cadvisor
+    image: cadvisor:shtanemu
     ports:
       - "8080:8080"
     volumes:
