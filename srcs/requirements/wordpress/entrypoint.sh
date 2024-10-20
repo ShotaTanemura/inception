@@ -18,4 +18,4 @@ wp plugin install redis-cache --allow-root --path=/var/www/html/wordpress --acti
 
 wp redis enable --allow-root
 
-php-fpm8.3 -F
+exec php-fpm8.3 -F
