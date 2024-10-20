@@ -129,7 +129,17 @@ services:
     restart: on-failure
 volumes:
   wordpress:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /home/shtanemu/data/wordpress
   mariadb:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /home/shtanemu/data/mariadb
 networks:
   docker-network:
     driver: bridge
